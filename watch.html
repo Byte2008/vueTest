@@ -1,0 +1,28 @@
+<!doctype>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="watch">
+        <p>Ask a yes /or question<input v-model="question">
+        </p>
+        <p>{{answer}}</p>
+    </div>
+    <script>
+    var vm=new Vue({
+        el:"#watch",
+        data:{
+            question:'',
+            answer:'I cannot give you an answer until you ask a question!'
+        },
+        watch:{
+            // 如果 `question` 发生改变，这个函数就会运行
+            question:function(newVaue,oldValue){
+                this.answer='Waiting for you to stop typing...'
+            }
+        }
+    })
+    </script>
+    </body>
+    </html>
